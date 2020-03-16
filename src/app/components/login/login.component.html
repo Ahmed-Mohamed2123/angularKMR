@@ -1,0 +1,15 @@
+<div class="body container">
+    <h2 class="text-center">Sign In</h2>
+    <form #f="ngForm" (ngSubmit)="login(f)">
+
+        <input ngModel name="email" type="email" #email="ngModel" placeholder="Email" class="form-control" required email>
+        <div class="alert alert-danger" *ngIf="email.touched && email.errors?.required">Email is Required</div>
+        <div class="alert alert-danger" *ngIf="email.touched && email.errors?.email">Your input doesn't match email format</div>
+
+        <input ngModel name="password" #password="ngModel" type="password" placeholder="Password" class="form-control" required minlength="6">
+        <div class="alert alert-danger" *ngIf="password.touched && password.errors?.required">Password is Required</div>
+        <div class="alert alert-danger" *ngIf="password.touched && password.errors?.minlength">Password should be 6+ charachters</div>
+
+        <button class="btn btn-primary" [disabled]="f.invalid">Create Account</button>
+    </form>
+</div>

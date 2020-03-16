@@ -1,0 +1,9 @@
+<div class="nav">
+  <app-navbar></app-navbar>
+</div>
+
+<div>
+  <div [@router]="myOutlet.activatedRouteData['index']" class="router-container">
+      <router-outlet #myOutlet="outlet"></router-outlet>
+  </div>
+</div>
